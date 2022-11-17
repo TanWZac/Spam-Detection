@@ -10,3 +10,12 @@ Data: https://www.kaggle.com/datasets/chandramoulinaidu/spam-classification-for-
 ### LightGBM Accuracy
 
 ![image](https://user-images.githubusercontent.com/100010968/202100060-0ade01f5-33b6-48b2-b2ae-28cfada54fe3.png)
+
+### K nearest neighbor Accuracy
+
+![image](https://user-images.githubusercontent.com/100010968/202439565-63961535-ee62-43e2-87d2-6905e33a2b56.png)
+
+### Naive Bayes multinomial Accuracy
+
+![image](https://user-images.githubusercontent.com/100010968/202439719-0d3a9be1-67ec-4351-8bed-148a074e60df.png)
+
