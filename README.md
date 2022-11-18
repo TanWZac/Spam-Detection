@@ -19,3 +19,6 @@ Data: https://www.kaggle.com/datasets/chandramoulinaidu/spam-classification-for-
 
 ![image](https://user-images.githubusercontent.com/100010968/202439719-0d3a9be1-67ec-4351-8bed-148a074e60df.png)
 
+### Decision Tree Accuracy
+
+![image](https://user-images.githubusercontent.com/100010968/202643856-bd405354-0530-431b-87e6-be01acafcc6e.png)
