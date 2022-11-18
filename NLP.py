@@ -33,8 +33,6 @@ def replacement(df, col):
 df = replacement(df, 'MESSAGE')
 
 
-# df['MESSAGE'] = df['MESSAGE'].str.replace(r'<[^<>]*>', '', regex=True)
-
 # In[5]:
 
 
@@ -52,7 +50,7 @@ from nltk.corpus import stopwords
 from nltk.stem.wordnet import WordNetLemmatizer
 
 
-# In[8]:
+# In[7]:
 
 
 import string
@@ -60,29 +58,35 @@ import re
 clear = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});')
 
 
+# In[8]:
+
+
+def lemm(text):
+    repunc = re.sub(clear, ' ', text)
+    nonstop = [j for j in repunc if j not in set(stopwords.words('english'))]
+    lem = WordNetLemmatizer()
+    return "".join([lem.lemmatize(j) for j in nonstop])
+
+
 # In[9]:
 
 
-lem = WordNetLemmatizer()
-corpus = []
-
-def process(msg):
-    for i in range(len(df)):
-        repunc = re.sub(clear, ' ', msg[i])
-        nonstop = [j for j in repunc if j not in set(stopwords.words('english'))]
-        cor = [lem.lemmatize(j) for j in nonstop]
-        cor = "".join(cor)
-        corpus.append(cor)
-    
+df['MESSAGE'] = df['MESSAGE'].apply(lemm)
 
 
 # In[10]:
 
 
-process(df['MESSAGE'])
+corpus = df['MESSAGE'].tolist()
 
 
 # In[11]:
+
+
+df['MESSAGE']
+
+
+# In[12]:
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -91,20 +95,20 @@ X = tfidf.fit_transform(corpus)
 y = df["CATEGORY"]
 
 
-# In[72]:
+# In[13]:
 
 
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
 
-# In[61]:
+# In[14]:
 
 
 import seaborn as sns
 
 
-# In[62]:
+# In[15]:
 
 
 import xgboost as xg
@@ -112,7 +116,7 @@ classifierXg = xg.XGBClassifier()
 classifierXg.fit(X_train, y_train)
 
 
-# In[63]:
+# In[16]:
 
 
 import lightgbm as lgb
@@ -120,7 +124,7 @@ classifier = lgb.LGBMClassifier()
 classifier.fit(X_train, y_train)
 
 
-# In[64]:
+# In[17]:
 
 
 from sklearn.neighbors import KNeighborsClassifier
@@ -128,7 +132,7 @@ classifierKNN = KNeighborsClassifier(n_neighbors=2)
 classifierKNN.fit(X_train, y_train)
 
 
-# In[87]:
+# In[18]:
 
 
 from sklearn.naive_bayes import MultinomialNB
@@ -136,7 +140,15 @@ NB = MultinomialNB()
 NB.fit(X_train, y_train)
 
 
-# In[20]:
+# In[24]:
+
+
+from sklearn import tree
+dt = tree.DecisionTreeClassifier()
+dt.fit(X_train, y_train)
+
+
+# In[19]:
 
 
 def report(model_name, X_test, y_test, model):
@@ -150,26 +162,32 @@ def report(model_name, X_test, y_test, model):
     print("Accuracy of " + model_name + " Model:", acc*100,"%")
 
 
-# In[22]:
+# In[20]:
 
 
 report("XGBoost", X_test, y_test, classifierXg)
 
 
-# In[23]:
+# In[21]:
 
 
 report("lightgbm", X_test, y_test, classifier)
 
 
-# In[29]:
+# In[22]:
 
 
 report("KNN", X_test, y_test, classifierKNN)
 
 
-# In[88]:
+# In[23]:
 
 
 report("Naive Bayes", X_test, y_test, NB)
+
+
+# In[25]:
+
+
+report("Decision Tree", X_test, y_test, dt)
 
