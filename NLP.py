@@ -86,7 +86,26 @@ corpus = df['MESSAGE'].tolist()
 df['MESSAGE']
 
 
-# In[12]:
+# In[27]:
+
+
+### this step is to save the dataframe into csv file as the above algorithm process too long
+df.to_csv("NLP.csv", encoding='utf-8')
+
+
+# In[28]:
+
+
+df = pd.read_csv("NLP.csv")
+
+
+# In[30]:
+
+
+df = df.iloc[:, 1:]
+
+
+# In[31]:
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -124,14 +143,6 @@ classifier = lgb.LGBMClassifier()
 classifier.fit(X_train, y_train)
 
 
-# In[17]:
-
-
-from sklearn.neighbors import KNeighborsClassifier
-classifierKNN = KNeighborsClassifier(n_neighbors=2)
-classifierKNN.fit(X_train, y_train)
-
-
 # In[18]:
 
 
@@ -140,7 +151,7 @@ NB = MultinomialNB()
 NB.fit(X_train, y_train)
 
 
-# In[24]:
+# In[19]:
 
 
 from sklearn import tree
@@ -148,7 +159,23 @@ dt = tree.DecisionTreeClassifier()
 dt.fit(X_train, y_train)
 
 
-# In[19]:
+# In[17]:
+
+
+from sklearn.neighbors import KNeighborsClassifier
+classifierKNN = KNeighborsClassifier(n_neighbors=2)
+classifierKNN.fit(X_train, y_train)
+
+
+# In[32]:
+
+
+from sklearn.ensemble import RandomForestClassifier
+rf = RandomForestClassifier(n_estimators = 90)
+rf.fit(X_train, y_train)
+
+
+# In[20]:
 
 
 def report(model_name, X_test, y_test, model):
@@ -162,25 +189,25 @@ def report(model_name, X_test, y_test, model):
     print("Accuracy of " + model_name + " Model:", acc*100,"%")
 
 
-# In[20]:
+# In[21]:
 
 
 report("XGBoost", X_test, y_test, classifierXg)
 
 
-# In[21]:
+# In[22]:
 
 
 report("lightgbm", X_test, y_test, classifier)
 
 
-# In[22]:
+# In[23]:
 
 
 report("KNN", X_test, y_test, classifierKNN)
 
 
-# In[23]:
+# In[24]:
 
 
 report("Naive Bayes", X_test, y_test, NB)
@@ -190,4 +217,10 @@ report("Naive Bayes", X_test, y_test, NB)
 
 
 report("Decision Tree", X_test, y_test, dt)
+
+
+# In[33]:
+
+
+report("Random Forest", X_test, y_test, rf)
 
