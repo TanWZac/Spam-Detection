@@ -22,3 +22,7 @@ Data: https://www.kaggle.com/datasets/chandramoulinaidu/spam-classification-for-
 ### Decision Tree Accuracy
 
 ![image](https://user-images.githubusercontent.com/100010968/202643856-bd405354-0530-431b-87e6-be01acafcc6e.png)
+
+### Ramdom Forest Accuracy
+
+![image](https://user-images.githubusercontent.com/100010968/202966922-b4ab9a81-f232-4f66-bd57-1e2157e70b4c.png)
