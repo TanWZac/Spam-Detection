@@ -1,4 +1,5 @@
 # Spam-Detection
+## Binary Classification on Spam messages
 
 Data: https://www.kaggle.com/datasets/chandramoulinaidu/spam-classification-for-basic-nlp
 
