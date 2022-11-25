@@ -18,7 +18,7 @@ Data: https://www.kaggle.com/datasets/chandramoulinaidu/spam-classification-for-
 
 ### K nearest neighbor Accuracy
 
-![image](https://user-images.githubusercontent.com/100010968/202439565-63961535-ee62-43e2-87d2-6905e33a2b56.png) ![image](https://user-images.githubusercontent.com/100010968/203927812-472b1c62-be4f-4694-a505-b7ec7d600b01.png)
+![image](https://user-images.githubusercontent.com/100010968/202439565-63961535-ee62-43e2-87d2-6905e33a2b56.png) ![image](https://user-images.githubusercontent.com/100010968/203928884-727f27b2-d288-41bc-87ca-ce498b320ec7.png)
 
 
 ### After using saved csv file which contains lemmatize words, accuracy has increased significantly on KNN model
