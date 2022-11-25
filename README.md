@@ -3,6 +3,9 @@
 
 Data: https://www.kaggle.com/datasets/chandramoulinaidu/spam-classification-for-basic-nlp
 
+Right side images used corpus which has been directly processed via lemmatization
+Left side images used corpus which is saved from the above process but change the type of the corpus
+
 ### XGBoost (Boosting) Accuracy
 
 ![image](https://user-images.githubusercontent.com/100010968/202431605-4120a3ac-0f1a-4e49-8ce3-7313ea902d23.png) ![image](https://user-images.githubusercontent.com/100010968/203927123-212abe4b-36b6-4998-a263-db800cd244e4.png)
