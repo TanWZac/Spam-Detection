@@ -14,7 +14,7 @@ Data: https://www.kaggle.com/datasets/chandramoulinaidu/spam-classification-for-
 
 ### LightGBM Accuracy
 
-![image](https://user-images.githubusercontent.com/100010968/202100060-0ade01f5-33b6-48b2-b2ae-28cfada54fe3.png)![image](https://user-images.githubusercontent.com/100010968/203929103-79af443f-066b-46b6-883e-b2e2a42b8a84.png)
+![image](https://user-images.githubusercontent.com/100010968/202100060-0ade01f5-33b6-48b2-b2ae-28cfada54fe3.png) ![image](https://user-images.githubusercontent.com/100010968/203929355-18f16535-de61-428b-9aac-25bfb391e7db.png)
 
 
 ### K nearest neighbor Accuracy
