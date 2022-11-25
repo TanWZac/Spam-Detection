@@ -3,9 +3,15 @@
 
 Data: https://www.kaggle.com/datasets/chandramoulinaidu/spam-classification-for-basic-nlp
 
-### XGBoost Accuracy
+## After using saved csv file which contains lemmatize words, accuracy has increased
+
+### XGBoost (Boosting) Accuracy Before
 
 ![image](https://user-images.githubusercontent.com/100010968/202431605-4120a3ac-0f1a-4e49-8ce3-7313ea902d23.png)
+
+### XGBoost (Boosting) Accuracy After
+
+![image](https://user-images.githubusercontent.com/100010968/203927123-212abe4b-36b6-4998-a263-db800cd244e4.png)
 
 
 ### LightGBM Accuracy
