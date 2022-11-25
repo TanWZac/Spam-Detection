@@ -93,24 +93,31 @@ df['MESSAGE']
 df.to_csv("NLP.csv", encoding='utf-8')
 
 
-# In[28]:
+# In[2]:
 
 
+import pandas as pd
 df = pd.read_csv("NLP.csv")
 
 
-# In[30]:
+# In[3]:
 
 
 df = df.iloc[:, 1:]
 
 
-# In[31]:
+# In[7]:
+
+
+corpus = df['MESSAGE'].tolist()
+
+
+# In[12]:
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 tfidf = TfidfVectorizer(ngram_range=(1, 3))
-X = tfidf.fit_transform(corpus)
+X = tfidf.fit_transform(df['MESSAGE'].values.astype('U'))
 y = df["CATEGORY"]
 
 
@@ -135,7 +142,7 @@ classifierXg = xg.XGBClassifier()
 classifierXg.fit(X_train, y_train)
 
 
-# In[16]:
+# In[18]:
 
 
 import lightgbm as lgb
@@ -143,7 +150,7 @@ classifier = lgb.LGBMClassifier()
 classifier.fit(X_train, y_train)
 
 
-# In[18]:
+# In[20]:
 
 
 from sklearn.naive_bayes import MultinomialNB
@@ -151,7 +158,7 @@ NB = MultinomialNB()
 NB.fit(X_train, y_train)
 
 
-# In[19]:
+# In[21]:
 
 
 from sklearn import tree
@@ -159,7 +166,7 @@ dt = tree.DecisionTreeClassifier()
 dt.fit(X_train, y_train)
 
 
-# In[17]:
+# In[22]:
 
 
 from sklearn.neighbors import KNeighborsClassifier
@@ -167,7 +174,7 @@ classifierKNN = KNeighborsClassifier(n_neighbors=2)
 classifierKNN.fit(X_train, y_train)
 
 
-# In[32]:
+# In[23]:
 
 
 from sklearn.ensemble import RandomForestClassifier
@@ -175,7 +182,15 @@ rf = RandomForestClassifier(n_estimators = 90)
 rf.fit(X_train, y_train)
 
 
-# In[20]:
+# In[31]:
+
+
+from sklearn.ensemble import BaggingClassifier
+bagging = BaggingClassifier()
+bagging.fit(X_train, y_train)
+
+
+# In[24]:
 
 
 def report(model_name, X_test, y_test, model):
@@ -189,38 +204,44 @@ def report(model_name, X_test, y_test, model):
     print("Accuracy of " + model_name + " Model:", acc*100,"%")
 
 
-# In[21]:
+# In[25]:
 
 
-report("XGBoost", X_test, y_test, classifierXg)
+report("XGBoost (Boosting)", X_test, y_test, classifierXg)
 
 
-# In[22]:
+# In[26]:
 
 
 report("lightgbm", X_test, y_test, classifier)
 
 
-# In[23]:
+# In[27]:
 
 
 report("KNN", X_test, y_test, classifierKNN)
 
 
-# In[24]:
+# In[28]:
 
 
 report("Naive Bayes", X_test, y_test, NB)
 
 
-# In[25]:
+# In[29]:
 
 
 report("Decision Tree", X_test, y_test, dt)
 
 
-# In[33]:
+# In[30]:
 
 
 report("Random Forest", X_test, y_test, rf)
+
+
+# In[32]:
+
+
+report('Bagging', X_test, y_test, bagging)
 
