@@ -3,14 +3,9 @@
 
 Data: https://www.kaggle.com/datasets/chandramoulinaidu/spam-classification-for-basic-nlp
 
-### XGBoost (Boosting) Accuracy Before \n XGBoost (Boosting) Accuracy After
+### XGBoost (Boosting) Accuracy
 
 ![image](https://user-images.githubusercontent.com/100010968/202431605-4120a3ac-0f1a-4e49-8ce3-7313ea902d23.png) ![image](https://user-images.githubusercontent.com/100010968/203927123-212abe4b-36b6-4998-a263-db800cd244e4.png)
-
-
-
-
-
 
 ### LightGBM Accuracy
 
@@ -21,8 +16,7 @@ Data: https://www.kaggle.com/datasets/chandramoulinaidu/spam-classification-for-
 
 ![image](https://user-images.githubusercontent.com/100010968/202439565-63961535-ee62-43e2-87d2-6905e33a2b56.png) ![image](https://user-images.githubusercontent.com/100010968/203929031-fa28d56a-0b3b-4353-8fe5-eadfd917ac49.png)
 
-
-### After using saved csv file which contains lemmatize words, accuracy has increased significantly on KNN model
+After using saved csv file which contains lemmatize words, accuracy has increased significantly on KNN model
 
 ### Naive Bayes multinomial Accuracy
 
