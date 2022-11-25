@@ -14,11 +14,12 @@ Data: https://www.kaggle.com/datasets/chandramoulinaidu/spam-classification-for-
 
 ### LightGBM Accuracy
 
-![image](https://user-images.githubusercontent.com/100010968/202100060-0ade01f5-33b6-48b2-b2ae-28cfada54fe3.png)
+![image](https://user-images.githubusercontent.com/100010968/202100060-0ade01f5-33b6-48b2-b2ae-28cfada54fe3.png) ![image](https://user-images.githubusercontent.com/100010968/203929103-79af443f-066b-46b6-883e-b2e2a42b8a84.png)
+
 
 ### K nearest neighbor Accuracy
 
-![image](https://user-images.githubusercontent.com/100010968/202439565-63961535-ee62-43e2-87d2-6905e33a2b56.png) ![image](https://user-images.githubusercontent.com/100010968/203928884-727f27b2-d288-41bc-87ca-ce498b320ec7.png)
+![image](https://user-images.githubusercontent.com/100010968/202439565-63961535-ee62-43e2-87d2-6905e33a2b56.png) ![image](https://user-images.githubusercontent.com/100010968/203929031-fa28d56a-0b3b-4353-8fe5-eadfd917ac49.png)
 
 
 ### After using saved csv file which contains lemmatize words, accuracy has increased significantly on KNN model
