@@ -40,3 +40,5 @@ Only a 4% increase in accuracy
 
 ![image](https://user-images.githubusercontent.com/100010968/203931001-e3451b3e-6aa4-4f7b-9144-9048411998a2.png)
 
+
+### K nearest neighbour yield the highest accuracy among the models which accomplished a 92.07% accuracy
